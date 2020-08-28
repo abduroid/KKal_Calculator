@@ -20,6 +20,15 @@ class MealsViewModel(
     val startOfDay = MutableLiveData<Date>()
     val endOfDay = MutableLiveData<Date>()
 
+
+    /// New record stuff
+
+    val newRecord = MutableLiveData<Meal>()
+
+    val caloryText = MutableLiveData<String>("0")
+
+
+
     val isFilterApplied = MutableLiveData(false)
 
     fun getMealsForSelectedDate() = database.getMealsForSelectedDate(startOfDay = startOfDay.value!!, endOfDay = endOfDay.value!!)

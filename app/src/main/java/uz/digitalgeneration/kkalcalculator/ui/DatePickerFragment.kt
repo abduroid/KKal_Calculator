@@ -3,7 +3,6 @@ package uz.digitalgeneration.kkalcalculator.ui
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
@@ -13,7 +12,7 @@ import uz.digitalgeneration.kkalcalculator.viewmodels.MealsViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
+class DatePickerFragment(private val onDateSetListener: DateSetCallback) : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     private lateinit var viewModel: MealsViewModel
 
@@ -47,11 +46,11 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
         val startOfDay = formatter.parse(textStartDay)
         val endOfDay = formatter.parse(textEndDay)
 
-        viewModel.startOfDay.value = startOfDay
-        viewModel.endOfDay.value = endOfDay
+        onDateSetListener.onDateSet(startOfDay, endOfDay)
+    }
 
-        viewModel.isFilterApplied.value = true
-
+    class DateSetCallback(val dateSetListener: (startOfDay: Date, endOfDay: Date) -> Unit) {
+        fun onDateSet(startOfDay: Date, endOfDay: Date) = dateSetListener(startOfDay, endOfDay)
     }
 
 }

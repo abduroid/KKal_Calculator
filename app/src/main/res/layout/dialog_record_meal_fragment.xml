@@ -1,63 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="uz.digitalgeneration.kkalcalculator.viewmodels.MealsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
 
 
-    <EditText
-        android:id="@+id/meal_title_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="127dp"
-        android:ems="10"
-        android:hint="Meal title"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/meal_title_edit"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:paddingLeft="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/edit_text_shape"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccentDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="Meal title" />
 
-<!--    <EditText-->
-<!--        android:id="@+id/meal_date_edit"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="51dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="date"-->
-<!--        android:inputType="date"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/meal_title_edit" />-->
+        <!--    <EditText-->
+        <!--        android:id="@+id/meal_date_edit"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginTop="51dp"-->
+        <!--        android:ems="10"-->
+        <!--        android:hint="date"-->
+        <!--        android:inputType="date"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@+id/meal_title_edit" />-->
 
-    <EditText
-        android:id="@+id/meal_calory_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="calory"
-        android:inputType="number|none"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meal_date_text" />
+<!--        <ImageView-->
+<!--            android:id="@+id/decrease_calories_button"-->
+<!--            android:layout_width="32dp"-->
+<!--            android:layout_height="32dp"-->
+<!--            android:src="@drawable/ic_decrease_calories_32"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/meal_calory_edit"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/meal_title_edit"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/meal_calory_edit"-->
+<!--            app:tint="@color/colorAccentDark" />-->
 
-    <TextView
-        android:id="@+id/meal_date_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meal_title_edit" />
+        <EditText
+            android:id="@+id/meal_calory_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_shape"
+            android:ems="10"
+            android:hint="calory"
+            android:inputType="number|none"
+            android:paddingLeft="8dp"
+            android:text="@={viewmodel.caloryText}"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccentDark"
+            app:layout_constraintEnd_toEndOf="@+id/meal_title_edit"
+            app:layout_constraintStart_toStartOf="@+id/meal_title_edit"
+            app:layout_constraintTop_toBottomOf="@+id/meal_title_edit" />
 
-    <Button
-        android:id="@+id/done_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/meal_calory_edit"
-        app:layout_constraintTop_toBottomOf="@+id/meal_calory_edit" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <ImageView-->
+<!--            android:id="@+id/icrease_calories_button"-->
+<!--            android:layout_width="32dp"-->
+<!--            android:layout_height="32dp"-->
+<!--            android:backgroundTintMode="add"-->
+<!--            android:src="@drawable/ic_increase_32"-->
+<!--            android:tint="@color/colorAccentDark"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/meal_calory_edit"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/meal_title_edit"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/meal_calory_edit" />-->
+
+        <Button
+            android:id="@+id/done_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorAccentDark"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="@+id/date_meal_text"
+            app:layout_constraintStart_toStartOf="@+id/time_meal_text"
+            app:layout_constraintTop_toBottomOf="@+id/date_meal_text" />
+
+        <Button
+            android:id="@+id/time_meal_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_text_shape"
+            android:drawableLeft="@drawable/ic_time"
+            android:drawableTint="@color/colorAccentDark"
+            android:paddingHorizontal="8dp"
+            android:text="Button"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="@+id/meal_title_edit"
+            app:layout_constraintTop_toBottomOf="@+id/meal_calory_edit" />
+
+        <Button
+            android:id="@+id/date_meal_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_shape"
+            android:drawableLeft="@drawable/ic_day"
+            android:drawableTint="@color/colorAccentDark"
+            android:paddingHorizontal="8dp"
+            android:text="Button"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@+id/time_meal_text"
+            app:layout_constraintEnd_toEndOf="@+id/meal_title_edit"
+            app:layout_constraintTop_toTopOf="@+id/time_meal_text" />
+
+        <View
+            android:id="@+id/bottom_margin"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/done_button"
+            tools:layout_editor_absoluteX="64dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

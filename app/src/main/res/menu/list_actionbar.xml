@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/reset_filter_menu"
+        android:icon="@drawable/ic_baseline_clear_24"
+        android:title="Remove filter"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/filter_menu"
         android:icon="@drawable/ic_baseline_filter_list_24"
         android:title="Filter"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/reset_filter_menu"
-        android:icon="@drawable/ic_baseline_clear_24"
-        android:title="Remove filter"
-        app:showAsAction="always" />
 
 </menu>

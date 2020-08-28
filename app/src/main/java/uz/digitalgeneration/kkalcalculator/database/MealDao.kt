@@ -13,9 +13,9 @@ interface MealDao {
     @Insert
     fun insert(meal: Meal): Long
 
-    @Query("SELECT * FROM meals ORDER BY id DESC")
+    @Query("SELECT * FROM meals ORDER BY date DESC")
     fun getMeals(): LiveData<List<Meal>>
 
-    @Query("SELECT * FROM meals WHERE date BETWEEN :startOfDay and :endOfDay ORDER BY id DESC")
+    @Query("SELECT * FROM meals WHERE date BETWEEN :startOfDay and :endOfDay ORDER BY date DESC")
     fun getMealsForSelectedDate(startOfDay: Date, endOfDay: Date): LiveData<List<Meal>>
 }

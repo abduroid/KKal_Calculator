@@ -30,7 +30,7 @@ class RecordMealFragment : Fragment(R.layout.dialog_record_meal_fragment) {
 
         val currentDate = Calendar.getInstance().time
 
-        meal_date_text.text = currentDate.toString()
+//        meal_date_text.text = currentDate.toString()
 
         done_button.setOnClickListener {
             val mealTitle = meal_title_edit.text.toString()

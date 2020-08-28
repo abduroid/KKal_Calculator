@@ -55,18 +55,21 @@ class ListMealsFragment : Fragment(R.layout.fragment_list_meals) {
         meal_add_fab.setOnClickListener {
             //TODO show dialog to add meal
 
-//            findNavController().navigate(R.id.action_listMealsFragment_to_recordMealFragment)
+            val dialogRecordMealFragment = DialogRecordMealFragment()
 
-            for (i in 1..5) {
-                val textStartDay1 = "$i-08-2020 00:00:00"
+            dialogRecordMealFragment.show(requireActivity().supportFragmentManager, "asf")
 
-                val formatter = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
 
-                val startOfDay = formatter.parse(textStartDay1)
-                val meal = Meal(title = "asfa${i}", type = "afs", date = startOfDay, calory = 24 + i)
-                viewModel.recordMeal(meal = meal)
-
-            }
+//            for (i in 1..5) {
+//                val textStartDay1 = "$i-08-2020 00:00:00"
+//
+//                val formatter = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
+//
+//                val startOfDay = formatter.parse(textStartDay1)
+//                val meal = Meal(title = "asfa${i}", type = "afs", date = startOfDay, calory = 24 + i)
+//                viewModel.recordMeal(meal = meal)
+//
+//            }
 
 
         }
@@ -102,13 +105,26 @@ class ListMealsFragment : Fragment(R.layout.fragment_list_meals) {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
         inflater.inflate(R.menu.list_actionbar, menu)
+
+        viewModel.isFilterApplied.observe(viewLifecycleOwner, {
+            menu.findItem(R.id.reset_filter_menu).isVisible = it
+            menu.findItem(R.id.filter_menu).isVisible = !it
+        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.filter_menu) {
 
-            val datePickerFragment = DatePickerFragment()
+            val datePickerFragment = DatePickerFragment(DatePickerFragment.DateSetCallback { startOfDay, endOfDay ->
+
+                viewModel.startOfDay.value = startOfDay
+                viewModel.endOfDay.value = endOfDay
+
+                viewModel.isFilterApplied.value = true
+
+            })
             datePickerFragment.show(requireActivity().supportFragmentManager, "dataPicker")
 
             return true
