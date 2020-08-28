@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KKal Calculator</string>
+    <string name="disclaimer_kcal">KCal</string>
 </resources>
