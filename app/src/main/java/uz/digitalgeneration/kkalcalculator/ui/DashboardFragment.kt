@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import uz.digitalgeneration.kkalcalculator.R
 import uz.digitalgeneration.kkalcalculator.database.MealDatabase
+import uz.digitalgeneration.kkalcalculator.util.DateWork
 import uz.digitalgeneration.kkalcalculator.viewmodels.MealViewModelFactory
 import uz.digitalgeneration.kkalcalculator.viewmodels.MealsViewModel
 import java.util.*
@@ -36,7 +37,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             today_calories_text.text = viewModel.calculateCaloriesOfList(it).toString()
         })
 
-
+        val week = DateWork().getStartAndEndOfWeek(today)
 
         today_calories_text.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_listMealsFragment)

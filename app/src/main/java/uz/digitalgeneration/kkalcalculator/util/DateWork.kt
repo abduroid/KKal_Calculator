@@ -26,9 +26,18 @@ class DateWork {
         return startDate to endDate
     }
 
-//    fun getStartAndEndOfWeek(selectedDate: Date): Pair<Date, Date> {
-//
-//    }
+    fun getStartAndEndOfWeek(selectedDate: Date): Pair<Int, Int> {
+
+        val c = Calendar.getInstance()
+        c.time = selectedDate
+
+        val firstDayOfWeek = c.firstDayOfWeek
+        val lastDayOfWeek = firstDayOfWeek + 6
+
+        Log.d("weekss", "First is $firstDayOfWeek last is $lastDayOfWeek")
+
+        return firstDayOfWeek to lastDayOfWeek
+    }
 
     fun seperateIntegersToDate(year: Int, month: Int, dayOfMonth: Int): Date {
 
