@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_navigation"
-    app:startDestination="@id/listMealsFragment">
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
         android:id="@+id/listMealsFragment"
@@ -22,5 +22,13 @@
             app:launchSingleTop="true"
             app:popUpTo="@id/recordMealFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="uz.digitalgeneration.kkalcalculator.ui.DashboardFragment"
+        android:label="DashboardFragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_listMealsFragment"
+            app:destination="@id/listMealsFragment" />
     </fragment>
 </navigation>
