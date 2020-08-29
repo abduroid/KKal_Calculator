@@ -36,7 +36,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             today_calories_text.text = viewModel.calculateCaloriesOfList(it).toString()
         })
 
-//        today_calories_text.text = viewModel.calculateCaloriesOfDay(today).toString()
+
 
         today_calories_text.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_listMealsFragment)

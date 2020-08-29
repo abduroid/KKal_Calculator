@@ -4,15 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
     <TextView
         android:id="@+id/today_calories_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
-        android:textColor="@android:color/black"
-        android:textSize="46sp"
+        android:textColor="@android:color/white"
+        android:textSize="64sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Today"
+        android:textColor="@color/colorAccentDark"
         app:layout_constraintEnd_toEndOf="@+id/today_calories_text"
         app:layout_constraintStart_toStartOf="@+id/today_calories_text"
         app:layout_constraintTop_toBottomOf="@+id/today_calories_text" />
@@ -37,4 +39,114 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/weekly_calories_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:text="56 000"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_divider"
+        app:layout_constraintTop_toBottomOf="@+id/today_disclaimer" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Weekly"
+        android:textColor="@color/colorAccentDark"
+        app:layout_constraintEnd_toEndOf="@+id/weekly_calories_text"
+        app:layout_constraintStart_toStartOf="@+id/weekly_calories_text"
+        app:layout_constraintTop_toBottomOf="@+id/weekly_calories_text" />
+
+    <TextView
+        android:id="@+id/monthly_calories_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="125000"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/weekly_calories_text"
+        app:layout_constraintStart_toEndOf="@+id/vertical_divider" />
+
+    <View
+        android:id="@+id/vertical_divider"
+        android:layout_width="1dp"
+        android:layout_height="200dp"
+        android:foreground="@color/colorAccentDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/weekly_calories_text" />
+
+    <View
+        android:id="@+id/horizontal_divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:foreground="@color/colorAccentDark"
+        app:layout_constraintBottom_toBottomOf="@id/vertical_divider"
+        app:layout_constraintEnd_toEndOf="@+id/monthly_calories_text"
+        app:layout_constraintStart_toStartOf="@+id/weekly_calories_text"
+        app:layout_constraintTop_toTopOf="@id/vertical_divider" />
+
+    <TextView
+        android:id="@+id/disclaimer_monthly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Monthly"
+        android:textColor="@color/colorAccentDark"
+        app:layout_constraintEnd_toEndOf="@+id/monthly_calories_text"
+        app:layout_constraintStart_toStartOf="@+id/monthly_calories_text"
+        app:layout_constraintTop_toBottomOf="@+id/monthly_calories_text" />
+
+    <TextView
+        android:id="@+id/average_day_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        tools:text="56 000"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/vertical_divider"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_divider"
+        app:layout_constraintTop_toTopOf="@+id/horizontal_divider" />
+
+    <TextView
+        android:id="@+id/disclaimer_averag_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Average day"
+        android:textColor="@color/colorAccentDark"
+        app:layout_constraintEnd_toEndOf="@+id/average_day_text"
+        app:layout_constraintStart_toStartOf="@+id/average_day_text"
+        app:layout_constraintTop_toBottomOf="@+id/average_day_text" />
+
+    <TextView
+        android:id="@+id/limit_calories_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="2 0000"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/vertical_divider"
+        app:layout_constraintStart_toEndOf="@+id/vertical_divider"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_divider" />
+
+    <TextView
+        android:id="@+id/disclaimer_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Limit"
+        android:textColor="@color/colorAccentDark"
+        app:layout_constraintEnd_toEndOf="@+id/limit_calories_text"
+        app:layout_constraintStart_toStartOf="@+id/limit_calories_text"
+        app:layout_constraintTop_toBottomOf="@+id/limit_calories_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

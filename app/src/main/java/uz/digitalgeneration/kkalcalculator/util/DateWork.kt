@@ -26,6 +26,10 @@ class DateWork {
         return startDate to endDate
     }
 
+//    fun getStartAndEndOfWeek(selectedDate: Date): Pair<Date, Date> {
+//
+//    }
+
     fun seperateIntegersToDate(year: Int, month: Int, dayOfMonth: Int): Date {
 
         val textDay = "${dayOfMonth}-${month + 1}-${year} 00:00:00"
