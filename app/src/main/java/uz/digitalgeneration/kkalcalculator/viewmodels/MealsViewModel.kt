@@ -56,26 +56,26 @@ class MealsViewModel(
         return work
     }
 
-    fun calculateCaloriesOfDay(selectedDate: Date): Int {
-
-        var calories = 0
-
-        Log.d("mfff", "selected Date is ${selectedDate}")
-
-        val pair = DateWork().getStartAndEndOfTheDate(selectedDate)
-        Log.d("mfff", "start date is ${pair.first} end date is ${pair.second}")
-
-        val entriesOfDate = database.getMealsForSelectedDate(startOfDay = pair.first, endOfDay = pair.second).value
-
-        Log.d("mfff", "The list size is${entriesOfDate?.size}")
-        if (entriesOfDate != null) {
-            for (meal in entriesOfDate) {
-                calories + meal.calory
-            }
-        }
-
-        return calories
-    }
+//    fun calculateCaloriesOfDay(selectedDate: Date): Int {
+//
+//        var calories = 0
+//
+//        Log.d("mfff", "selected Date is ${selectedDate}")
+//
+//        val pair = DateWork().getStartAndEndOfTheDate(selectedDate)
+//        Log.d("mfff", "start date is ${pair.first} end date is ${pair.second}")
+//
+//        val entriesOfDate = database.getMealsForSelectedDate(startOfDay = pair.first, endOfDay = pair.second).value
+//
+//        Log.d("mfff", "The list size is${entriesOfDate?.size}")
+//        if (entriesOfDate != null) {
+//            for (meal in entriesOfDate) {
+//                calories + meal.calory
+//            }
+//        }
+//
+//        return calories
+//    }
 
     fun recordMeal(meal: Meal) {
         uiScope.launch {

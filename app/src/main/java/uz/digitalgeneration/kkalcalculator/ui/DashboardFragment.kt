@@ -42,5 +42,9 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             findNavController().navigate(R.id.action_dashboardFragment_to_listMealsFragment)
         }
 
+        show_list_button.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_listMealsFragment)
+        }
+
     }
 }
